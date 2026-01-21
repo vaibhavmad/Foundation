@@ -1,0 +1,34 @@
+# ============================================
+# FOUNDATION - Git Ignore Rules
+# ============================================
+# Planning / curriculum is valuable IP
+# Only code goes to GitHub
+# ============================================
+
+# ===== PLANNING & CURRICULUM (IP) =====
+# Planning, decisions, logs
+.context/
+# Comprehensive curriculum design
+CURRICULUM.md
+# Learning strategy
+PROJECT_PLAN.md
+# Contains planning details
+README.md
+
+# ===== SYSTEM FILES =====
+# Mac folder metadata
+.DS_Store
+
+# ===== PYTHON CACHE =====
+# Python cache folder
+__pycache__/
+# Compiled Python files
+*.pyc
+# Optimized Python files
+*.pyo
+
+# ===== FUTURE (when needed) =====
+# Virtual environment
+venv/
+# Environment variables / secrets
+.env
