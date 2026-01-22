@@ -185,17 +185,26 @@ project_info = {
 
 # TASK 6.2: Check if "name" key exists in the dictionary
 # Print "Name exists!" if it does
-
+if "name" in project_info:
+    print("Name exists!")
+else:
+    print("Name does not exist")
 
 # TASK 6.3: Check if "author" key exists
 # Print "Author exists!" if it does, otherwise print "Author not found"
+if "author" in project_info:
+    print("Author exists!")
+else:
+    print("Author does not exist")
 
 
 # TASK 6.4: Get all the keys and print them
-print("Keys:", project_info.keys())
+project_keys = project_info.keys()
+print(f"Keys: {project_keys}")
 
 # TASK 6.5: Get all the values and print them
-
+project_values = project_info.values()
+print(f"Values: {project_values}")
 
 print()
 
@@ -212,20 +221,19 @@ competitors = [
 ]
 
 # TASK 7.1: Print the ENTIRE list
-print("All competitors:", competitors)
-print()
+print(competitors)
 
 # TASK 7.2: Print the FIRST competitor (it's a dictionary!)
-
+print(competitors[0])
 
 # TASK 7.3: Print the name of the FIRST competitor
-
+print(competitors[0]["name"])
 
 # TASK 7.4: Print the word_count of the SECOND competitor
-
+print(competitors[1]["word_count"])
 
 # TASK 7.5: Print the ranking of the THIRD competitor
-
+print(competitors[2]["ranking"])
 
 print()
 
@@ -240,19 +248,24 @@ print("-" * 30)
 # - "role": "user"
 # - "content": "Generate a headline about shilajit benefits"
 # Call it 'messages'
-
+message = [
+    {
+        "role": "user",
+        "content": "Generate a headline about shilajit benefits"
+    }
+]
 
 # TASK 8.2: Print the entire messages list
-
+print(message)
 
 # TASK 8.3: Print JUST the first message (the dictionary)
-
+print(message[0])
 
 # TASK 8.4: Print JUST the role from the first message
-
+print(message[0]["role"])
 
 # TASK 8.5: Print JUST the content from the first message
-
+print(message[0]["content"])
 
 print()
 
@@ -272,19 +285,20 @@ article_full = {
 }
 
 # TASK 9.1: Print the title
-
+print(article_full["title"])
 
 # TASK 9.2: Print the ENTIRE details dictionary
-
+print(article_full["details"])
 
 # TASK 9.3: Print the word_count from inside details
-
+print(article_full["details"]["word_count"])
 
 # TASK 9.4: Print the status from inside details
-
+print(article_full["details"]["status"])
 
 # TASK 9.5: Print the FIRST keyword from the keywords list inside details
-
+article_keywords = article_full["details"]["keywords"]
+print(article_keywords[0])
 
 print()
 
@@ -296,23 +310,48 @@ print("-" * 30)
 
 # CHALLENGE 10.1: Create a dictionary for a competitor with at least 4 keys
 # Include: url, word_count, ranking, and one more of your choice
-
+competitor_a = {
+    "url": "xyz1.com",
+    "word_count": 2100,
+    "ranking": 4,
+    "evaluated": False
+}
 
 # CHALLENGE 10.2: Create a list with 3 dictionaries
 # Each dictionary should represent an article with "title" and "word_count"
-
+article_info_list = [
+    {
+        "title": "Hello Code", 
+        "word_count": 2100
+    },
+    {
+        "title": "Hello Code1", 
+        "word_count": 2200
+    },
+    {
+        "title": "Hello Code2", 
+        "word_count": 2300
+    }
+]
 
 # CHALLENGE 10.3: From your list in 10.2, print the title of the SECOND article
-
+print(article_info_list[1]["title"])
 
 # CHALLENGE 10.4: Create a dictionary that contains:
 # - "project": "Foundation"
 # - "topics": a LIST of 3 topics you've learned
 # - "progress": a DICTIONARY with "days": 2, "complete": False
-
+learning_status = {
+    "project": "Foundation",
+    "topics": ["git", "variables", "operators"],
+    "progress": {
+        "days": 2,
+        "complete": False
+    }
+}
 
 # CHALLENGE 10.5: From 10.4, print how many days from the nested progress dictionary
-
+print(learning_status["progress"]["days"])
 
 print()
 print("=" * 50)
