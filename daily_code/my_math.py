@@ -34,3 +34,6 @@ def divide(a, b):
 def square(number):
     """Return the square of a number."""
     return number * number
+
+def cube(number):
+    return number * number * number
