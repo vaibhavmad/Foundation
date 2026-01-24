@@ -137,12 +137,11 @@ print("Write your code below:")
 
 # YOUR CODE HERE:
 for nums in ([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]):
-    print(nums)
     if nums == 5:
         continue
     if nums == 8:
         break
-# this is a gap
+    print(nums)
 print()
 
 # ============================================================
@@ -158,7 +157,9 @@ print("(Use enumerate to get both index and value)")
 print("Write your code below:")
 
 # YOUR CODE HERE:
-# this is a gap
+fruits = ['apple', 'banana', 'orange']
+for index, value in enumerate(fruits):
+    print(f"Index {index}: {value}")
 print()
 
 # ============================================================
@@ -172,10 +173,7 @@ print("      (If you know this, write it. If not, write 'I don't know this yet')
 print("Write your code below:")
 
 # YOUR CODE HERE:
-sq_list = []
-for x in range(1, 6):
-    sq = x ** 2
-    sq_list.append(sq)
+sq_list = [x ** 2 for x in range(1, 6)]
 print(sq_list)
 print()
 print("=" * 60)
