@@ -10,6 +10,8 @@ Instructions:
 - Experiment and break things to learn!
 """
 
+
+
 print("=" * 50)
 print("FOUNDATION DAY 5 - FILE I/O PRACTICE")
 print("=" * 50)
@@ -23,7 +25,7 @@ print("-" * 30)
 
 # TASK 1.1: Open a file called "manual_write.txt" in write mode
 # Store it in a variable called 'file'
-file = open("manual_write.txt", "w")
+file  = open("manual_write.txt", "w")
 
 # TASK 1.2: Write "Hello from manual mode!" to the file
 file.write("Hello from manual mode!")
@@ -43,16 +45,12 @@ print("-" * 30)
 
 # TASK 2.1: Open "manual_write.txt" in read mode
 file = open("manual_write.txt", "r")
-
 # TASK 2.2: Read all content from the file and store it in a variable called 'content'
 content = file.read()
-
 # TASK 2.3: Close the file
 file.close()
-
 # TASK 2.4: Print the content you read
-print(f"Content read: {content}")
-
+print(content)
 print()
 
 # ============================================================
@@ -62,8 +60,8 @@ print("SECTION 3: Writing Files - With Statement")
 print("-" * 30)
 
 # TASK 3.1: Write "Hello from with statement!" to "with_write.txt" using with statement
-with open("with_write.txt", "w") as file:
-    file.write("Hello from with statement!")
+with open("with_write.txt", "w") as file_3:
+    file_3.write("Hello from with statement!")
 
 print("✅ File written using with statement (automatic close)")
 
@@ -76,12 +74,11 @@ print("SECTION 4: Reading Files - With Statement")
 print("-" * 30)
 
 # TASK 4.1: Read "with_write.txt" using with statement
-with open("with_write.txt", "r") as file:
-    content = file.read()
+with open("with_write.txt", "r") as file_4:
+    content_4 = file_4.read()
 
 # TASK 4.2: Print the content
-print(f"Content read: {content}")
-
+print(content_4)
 print()
 
 # ============================================================
@@ -95,19 +92,18 @@ print("-" * 30)
 # Line 2: "Second line"
 # Line 3: "Third line"
 # TIP: Use file.write() multiple times, or add "\n" for new lines
-with open("multi_line.txt", "w") as file:
-    file.write("First line\n")
-    file.write("Second line\n")
-    file.write("Third line\n")
+with open("multi_line.txt", "w") as file_5:
+    file_5.write('Line 1: "First line"\n')
+    file_5.write('Line 2: "Second line"\n')
+    file_5.write('Line 3: "Third line"\n')
 
 print("✅ Multiple lines written")
 
 # TASK 5.2: Read and print the entire file
-with open("multi_line.txt", "r") as file:
-    content = file.read()
-    print("File content:")
-    print(content)
+with open("multi_line.txt", "r") as file_5:
+    content_5 = file_5.read()
 
+print(content_5)
 print()
 
 # ============================================================
@@ -118,17 +114,15 @@ print("-" * 30)
 
 # TASK 6.1: Read "multi_line.txt" using readlines()
 # This returns a LIST of lines (each line is a string)
-with open("multi_line.txt", "r") as file:
-    lines = file.readlines()
+with open("multi_line.txt", "r") as file_6:
+    content_6 = file_6.readlines()
 
 # TASK 6.2: Print the lines list (you'll see it's a list)
-print(f"Lines as list: {lines}")
+print(content_6)
 
 # TASK 6.3: Print each line individually using a loop
-print("Each line:")
-for line in lines:
-    print(line.strip())  # .strip() removes the \n at the end
-
+for line in content_6:
+    print(line)
 print()
 
 # ============================================================
@@ -138,19 +132,15 @@ print("SECTION 7: Writing Multiple Lines (writelines)")
 print("-" * 30)
 
 # TASK 7.1: Create a list of strings (each string is a line)
-lines_list = ["Apple\n", "Banana\n", "Orange\n"]
+# IMPORTANT: Each string must include "\n" at the end for proper line breaks
+# Create 3 lines with text of your choice
 
-# TASK 7.2: Write all lines at once using writelines()
-with open("fruits.txt", "w") as file:
-    file.writelines(lines_list)
+# TASK 7.2: Write all lines at once to "writelines_test.txt" using writelines()
+# Use with statement and file.writelines(your_list)
 
 print("✅ Multiple lines written using writelines()")
 
-# TASK 7.3: Read and print the file to verify
-with open("fruits.txt", "r") as file:
-    content = file.read()
-    print("File content:")
-    print(content)
+# TASK 7.3: Read "writelines_test.txt" and print the file to verify
 
 print()
 
@@ -160,20 +150,15 @@ print()
 print("SECTION 8: Append Mode (Adding to Files)")
 print("-" * 30)
 
-# TASK 8.1: Write "Original content" to "append_test.txt" in write mode
-with open("append_test.txt", "w") as file:
-    file.write("Original content\n")
+# TASK 8.1: Write "Original content\n" to "append_test.txt" in write mode ("w")
+# Use with statement
 
-# TASK 8.2: Append "New content" to the same file using append mode
-# Mode "a" = append (adds to end, doesn't overwrite)
-with open("append_test.txt", "a") as file:
-    file.write("New content\n")
+# TASK 8.2: Append "New content\n" to "append_test.txt" using append mode ("a")
+# Mode "a" = append (adds to end, doesn't overwrite existing content)
+# Use with statement
 
-# TASK 8.3: Read and print the entire file
-with open("append_test.txt", "r") as file:
-    content = file.read()
-    print("File content after append:")
-    print(content)
+# TASK 8.3: Read "append_test.txt" and print the entire file
+# You should see both "Original content" and "New content"
 
 print()
 
@@ -184,31 +169,16 @@ print("SECTION 9: Real-World Scenario - Saving Article")
 print("-" * 30)
 
 # TASK 9.1: Create article content (a string with multiple lines)
-# This simulates a generated article from AI_SEO_Writer
-article_content = """# Shilajit Benefits for Men
-
-Shilajit is a powerful natural supplement that offers numerous health benefits.
-
-## Key Benefits:
-1. Increased energy levels
-2. Improved testosterone
-3. Better cognitive function
-
-## Conclusion:
-Shilajit is an excellent supplement for men's health.
-"""
+# Create a variable called 'article' with at least 3 lines about Shilajit
+# Use "\n" to separate lines in the string
 
 # TASK 9.2: Save the article to "shilajit_article.md" using with statement
-with open("shilajit_article.md", "w") as file:
-    file.write(article_content)
+# Use write mode ("w")
 
 print("✅ Article saved to shilajit_article.md")
 
-# TASK 9.3: Read the article back and print the first 100 characters
-with open("shilajit_article.md", "r") as file:
-    content = file.read()
-    print("First 100 characters:")
-    print(content[:100])
+# TASK 9.3: Read "shilajit_article.md" back and print the first 100 characters
+# Use string slicing: content[:100] to get first 100 characters
 
 print()
 
@@ -218,27 +188,17 @@ print()
 print("SECTION 10: Real-World Scenario - Reading Competitor Articles")
 print("-" * 30)
 
-# TASK 10.1: Create a competitor article file first
-competitor_content = """Competitor Article About Shilajit
+# TASK 10.1: Create a competitor article file called "competitor_article.txt" first
+# Write at least 2-3 lines of content about a health topic
+# Use with statement and write mode
 
-This is a sample competitor article.
-It contains information about shilajit benefits.
-Word count: approximately 1500 words.
-"""
-with open("competitor_article.txt", "w") as file:
-    file.write(competitor_content)
-
-# TASK 10.2: Read the competitor article
-with open("competitor_article.txt", "r") as file:
-    competitor_text = file.read()
+# TASK 10.2: Read "competitor_article.txt" using with statement
+# Store the content in a variable
 
 # TASK 10.3: Print the length of the article (number of characters)
-article_length = len(competitor_text)
-print(f"Competitor article length: {article_length} characters")
+# Use len() function on the content variable
 
 # TASK 10.4: Print the article content
-print("Competitor article content:")
-print(competitor_text)
 
 print()
 
@@ -248,25 +208,13 @@ print()
 print("SECTION 11: Comparing Manual vs With Statement")
 print("-" * 30)
 
-# TASK 11.1: Write "Manual mode" using manual open/close
-file_manual = open("comparison_manual.txt", "w")
-file_manual.write("Manual mode")
-file_manual.close()
+# TASK 11.1: Write "Manual mode\n" to "manual_comparison.txt" using manual open/close
+# Use open(), write(), close()
 
-# TASK 11.2: Write "With statement" using with statement
-with open("comparison_with.txt", "w") as file:
-    file.write("With statement")
+# TASK 11.2: Write "With statement\n" to "with_comparison.txt" using with statement
 
-# TASK 11.3: Read both files and print their contents
-file_manual = open("comparison_manual.txt", "r")
-manual_content = file_manual.read()
-file_manual.close()
+# TASK 11.3: Read both files ("manual_comparison.txt" and "with_comparison.txt") and print their contents
 
-with open("comparison_with.txt", "r") as file:
-    with_content = file.read()
-
-print(f"Manual mode result: {manual_content}")
-print(f"With statement result: {with_content}")
 print("✅ Both methods work, but 'with' is recommended!")
 
 print()
@@ -278,26 +226,18 @@ print("SECTION 12: File I/O + Lists")
 print("-" * 30)
 
 # TASK 12.1: Create a list of 5 article titles
-article_titles = ["Shilajit Benefits", "Shilajit Dosage", "Shilajit Side Effects", "Shilajit for Men", "Shilajit Reviews"]
 
 # TASK 12.2: Write each title to "article_titles.txt" (one per line)
 # Use a for loop to iterate through the list
-with open("article_titles.txt", "w") as file:
-    for title in article_titles:
-        file.write(title + "\n")
 
 print("✅ Article titles written to file")
 
 # TASK 12.3: Read the file back and store lines in a list
-with open("article_titles.txt", "r") as file:
-    lines = file.readlines()
 
 # TASK 12.4: Print the list length using len()
-print(f"Number of articles: {len(lines)}")
 
 # TASK 12.5: Print each title with its index (0, 1, 2, etc.)
-for index, line in enumerate(lines):
-    print(f"Article {index}: {line.strip()}")
+# Use enumerate() function: for index, title in enumerate(titles):
 
 print()
 
@@ -311,23 +251,14 @@ print("-" * 30)
 #   - filename (string)
 #   - content (string)
 # Inside, write the content to the file using with statement
-def save_to_file(filename, content):
-    with open(filename, "w") as file:
-        file.write(content)
 
 # TASK 13.2: Define a function called 'read_from_file' that takes one parameter:
 #   - filename (string)
 # Inside, read the file and return the content
-def read_from_file(filename):
-    with open(filename, "r") as file:
-        return file.read()
 
 # TASK 13.3: Call save_to_file with "function_test.txt" and "Hello from function!"
-save_to_file("function_test.txt", "Hello from function!")
 
 # TASK 13.4: Call read_from_file with "function_test.txt" and print the result
-content = read_from_file("function_test.txt")
-print(f"Content read by function: {content}")
 
 print()
 
@@ -338,22 +269,15 @@ print("SECTION 14: File I/O + Loops")
 print("-" * 30)
 
 # TASK 14.1: Create a list of 3 competitor URLs
-competitor_urls = ["competitor1.com/shilajit", "competitor2.com/shilajit", "competitor3.com/shilajit"]
 
 # TASK 14.2: Write each URL to "competitor_urls.txt" using a for loop
 # Each URL should be on a new line
-with open("competitor_urls.txt", "w") as file:
-    for url in competitor_urls:
-        file.write(url + "\n")
 
 print("✅ Competitor URLs written")
 
-# TASK 14.3: Read the file and process each URL with a loop
-# Print each URL with a number (1, 2, 3, etc.)
-with open("competitor_urls.txt", "r") as file:
-    urls = file.readlines()
-    for number, url in enumerate(urls, start=1):
-        print(f"Competitor {number}: {url.strip()}")
+# TASK 14.3: Read "competitor_urls.txt" and process each URL with a loop
+# Use readlines() to get a list of lines
+# Print each URL with a number (1, 2, 3, etc.) using enumerate() with start=1
 
 print()
 
@@ -364,28 +288,14 @@ print("SECTION 15: File I/O + Control Flow")
 print("-" * 30)
 
 # TASK 15.1: Write "Important content" to "check_file.txt"
-with open("check_file.txt", "w") as file:
-    file.write("Important content\n")
 
 # TASK 15.2: Read the file and check if content length is greater than 10
 # If yes, print "File has enough content"
 # If no, print "File is too short"
-with open("check_file.txt", "r") as file:
-    content = file.read()
-    if len(content) > 10:
-        print("File has enough content")
-    else:
-        print("File is too short")
 
 # TASK 15.3: Read "check_file.txt" and check if it contains the word "Important"
 # If yes, print "Found important content"
 # If no, print "No important content found"
-with open("check_file.txt", "r") as file:
-    content = file.read()
-    if "Important" in content:
-        print("Found important content")
-    else:
-        print("No important content found")
 
 print()
 
@@ -398,41 +308,21 @@ print("-" * 30)
 # TASK 16.1: Create a dictionary with article information
 # Keys: "title", "word_count", "status"
 # Values: "Shilajit Guide", 2000, "published"
-article_info = {
-    "title": "Shilajit Guide",
-    "word_count": 2000,
-    "status": "published"
-}
 
 # TASK 16.2: Write each key-value pair to "article_info.txt"
 # Format: "key: value" (one per line)
 # Use a for loop to iterate through dictionary items
-with open("article_info.txt", "w") as file:
-    for key, value in article_info.items():
-        file.write(f"{key}: {value}\n")
 
 print("✅ Article info written to file")
 
-# TASK 16.3: Read the file and recreate the dictionary
-# Read each line, split by ":", and add to new dictionary
-new_article_info = {}
-with open("article_info.txt", "r") as file:
-    lines = file.readlines()
-    for line in lines:
-        # Split line by ":" to get key and value
-        parts = line.strip().split(": ")
-        key = parts[0]
-        value = parts[1]
-        # Convert word_count to integer if it's a number
-        if key == "word_count":
-            value = int(value)
-        new_article_info[key] = value
+# TASK 16.3: Read "article_info.txt" and recreate the dictionary
+# Use readlines() to get list of lines
+# For each line, use split(": ") to separate key and value
+# Create a new empty dictionary and add each key-value pair
 
 # TASK 16.4: Print the recreated dictionary
-print(f"Recreated dictionary: {new_article_info}")
 
 # TASK 16.5: Print just the title from the dictionary
-print(f"Title: {new_article_info['title']}")
 
 print()
 
@@ -444,48 +334,27 @@ print("-" * 30)
 
 # CHALLENGE 17.1: Create a file called "challenge1.txt"
 # Write 5 lines, each containing a number from 1 to 5
-with open("challenge1.txt", "w") as file:
-    for i in range(1, 6):
-        file.write(f"Line {i}\n")
 
 print("✅ Challenge 1: Created file with 5 numbered lines")
 
 # CHALLENGE 17.2: Read "challenge1.txt" line by line using readlines()
 # Print each line with its line number (1, 2, 3, etc.)
-with open("challenge1.txt", "r") as file:
-    lines = file.readlines()
-    for index, line in enumerate(lines, start=1):
-        print(f"Line {index}: {line.strip()}")
+# Use enumerate() with start=1 to number the lines
 
 print()
 
 # CHALLENGE 17.3: Create a file called "shopping_list.txt"
 # Write 3 items: "Milk", "Bread", "Eggs" (each on a new line)
-shopping_items = ["Milk\n", "Bread\n", "Eggs\n"]
-with open("shopping_list.txt", "w") as file:
-    file.writelines(shopping_items)
 
 print("✅ Challenge 3: Created shopping list")
 
 # CHALLENGE 17.4: Read "shopping_list.txt" and print each item
-with open("shopping_list.txt", "r") as file:
-    items = file.readlines()
-    print("Shopping list items:")
-    for item in items:
-        print(f"  - {item.strip()}")
 
 print()
 
-# CHALLENGE 17.5: Append "Butter" to "shopping_list.txt"
-with open("shopping_list.txt", "a") as file:
-    file.write("Butter\n")
+# CHALLENGE 17.5: Append "Butter\n" to "shopping_list.txt" using append mode ("a")
 
-# Read and print the updated list
-with open("shopping_list.txt", "r") as file:
-    items = file.readlines()
-    print("Updated shopping list:")
-    for item in items:
-        print(f"  - {item.strip()}")
+# Read "shopping_list.txt" and print the updated list
 
 print()
 
