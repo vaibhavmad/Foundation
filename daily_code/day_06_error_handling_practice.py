@@ -131,14 +131,100 @@ except IndexError:
 print()
 
 # ============================================================
-# SECTION 3: File Error Handling
+# SECTION 3: Error Handling + Lists
 # ============================================================
-print("SECTION 3: File Error Handling")
+print("SECTION 3: Error Handling + Lists")
+print("-" * 30)
+
+# TASK 3.1: Write a function that safely gets an item from a list by index
+# Function name: safe_get_item
+# Parameters: my_list, index
+# Try: Access my_list[index]
+# If IndexError: return "Index out of range!"
+# else: return the item
+# Call with: safe_get_item([10, 20, 30], 1) and safe_get_item([10, 20, 30], 10)
+def safe_get_item(my_list, index):
+    try:
+        return my_list[index]
+    except IndexError:
+        return "Index out of range!"
+
+print(safe_get_item([10, 20, 30], 1))
+print(safe_get_item([10, 20, 30], 10))
+
+# TASK 3.2: Write a function that safely calculates the average of a list of numbers
+# Function name: safe_average
+# Parameter: numbers (a list)
+# Try: Calculate sum(numbers) / len(numbers)
+# If ZeroDivisionError: return "Cannot calculate average of empty list!"
+# If TypeError: return "List contains non-numeric values!"
+# else: return the average
+# Call with: safe_average([10, 20, 30]) and safe_average([]) and safe_average(["a", "b"])
+def safe_average(numbers):
+    try:
+        return sum(numbers) / len(numbers)
+    except ZeroDivisionError:
+        return "Cannot calculate average of empty list!"
+    except TypeError:
+        return "List contains non-numeric values!"
+
+print(safe_average([10, 20, 30]))
+print(safe_average([]))
+print(safe_average(["a", "b"]))
+
+# TASK 3.3: Write a try/except block that safely processes a list of strings as numbers
+# Create a list: ["10", "20", "thirty", "40"]
+# Loop through each item, try to convert to int
+# If ValueError: print "Skipping '[item]' - not a number"
+# else: print "Number: [converted_number]"
+# Use a for loop and try/except inside the loop
+number_strings = ["10", "20", "thirty", "40"]
+for item in number_strings:
+    try:
+        number = int(item)
+        print(f"Number: {number}")
+    except ValueError:
+        print(f"Skipping '{item}' - not a number")
+
+print()
+
+# ============================================================
+# SECTION 4: Error Handling + Dictionaries
+# ============================================================
+print("SECTION 4: Error Handling + Dictionaries")
+print("-" * 30)
+
+# TASK 4.1: Write a function that safely gets a value from a dictionary
+# Function name: safe_get_value
+# Parameters: my_dict, key
+# Try: Access my_dict[key]
+# If KeyError: return "Key '[key]' not found in dictionary!"
+# else: return the value
+# Call with: safe_get_value({"name": "Alice", "age": 30}, "name") and safe_get_value({"name": "Alice"}, "city")
+def safe_get_value(my_dict, key):
+    try:
+        return my_dict[key]
+    except KeyError:
+        return f"Key '{key}' not found in dictionary!"
+
+print(safe_get_value({"name": "Alice", "age": 30}, "name"))
+print(safe_get_value({"name": "Alice"}, "city"))
+
+print()
+
+# ============================================================
+# SECTION 5: File Error Handling
+# ============================================================
+print("SECTION 5: File Error Handling")
 print("-" * 30)
 
 # TASK 3.1: Write a try/except block that tries to open a file called "nonexistent.txt"
 # Catch FileNotFoundError and print "File not found!"
-
+try:
+    with open("nonexistent.txt", "r") as file:
+        content = file.read()
+except FileNotFoundError:
+    print("File not found!")
 
 # TASK 3.2: Write a function that safely reads a file
 # Function name: safe_read_file
@@ -147,29 +233,48 @@ print("-" * 30)
 # If FileNotFoundError: return "File not found: [filename]"
 # else: return the file content
 # Call with: safe_read_file("test_write.txt") and safe_read_file("nonexistent.txt")
+def safe_read_file(filename):
+    try:
+        with open(filename, "r") as file:
+            content = file.read()
+    except FileNotFoundError:
+        return f"File not found: {filename}"
+    else:
+        return content
 
-
+print(safe_read_file("test_write.txt"))
+print(safe_read_file("nonexistent.txt"))
 print()
 
 # ============================================================
-# SECTION 4: else and finally Clauses
+# SECTION 6: else and finally Clauses
 # ============================================================
-print("SECTION 4: else and finally Clauses")
+print("SECTION 6: else and finally Clauses")
 print("-" * 30)
 
-# TASK 4.1: Write a try/except/else block
+# TASK 6.1: Write a try/except/else block
 # Try: Convert "42" to integer
 # If ValueError: print "Invalid number!"
 # else: print "Success! Number is: [the number]"
+try:
+    result = int("42")
+except ValueError: 
+    print("Invalid number!")
+else:
+    print(f"Success! Number is: {result}") 
 
-
-# TASK 4.2: Write a try/except/finally block
+# TASK 6.2: Write a try/except/finally block
 # Try: 10 / 0
 # If ZeroDivisionError: print "Division error!"
 # finally: print "This always runs!"
+try:
+    result = 10/0
+except ZeroDivisionError:
+    print("Division error!") 
+finally:
+    print("This always runs!") 
 
-
-# TASK 4.3: Write a try/except/finally block for file operations
+# TASK 6.3: Write a try/except/finally block for file operations
 # Try: Open "test_write.txt" in read mode
 # If FileNotFoundError: print "File not found!"
 # finally: print "File operation completed!"
@@ -178,17 +283,17 @@ print("-" * 30)
 print()
 
 # ============================================================
-# SECTION 5: Getting Error Details
+# SECTION 7: Getting Error Details
 # ============================================================
-print("SECTION 5: Getting Error Details")
+print("SECTION 7: Getting Error Details")
 print("-" * 30)
 
-# TASK 5.1: Write a try/except block that captures the error message
+# TASK 7.1: Write a try/except block that captures the error message
 # Try: 10 / 0
 # Catch ZeroDivisionError as 'e' and print "Error: [error message]"
 
 
-# TASK 5.2: Write a try/except block that captures FileNotFoundError details
+# TASK 7.2: Write a try/except block that captures FileNotFoundError details
 # Try: open("nonexistent.txt")
 # Catch FileNotFoundError as 'e' and print "FileError: [error message]"
 
@@ -196,12 +301,12 @@ print("-" * 30)
 print()
 
 # ============================================================
-# SECTION 6: Quick Integration - Functions + Error Handling
+# SECTION 8: Quick Integration - Functions + Error Handling
 # ============================================================
-print("SECTION 6: Quick Integration")
+print("SECTION 8: Quick Integration")
 print("-" * 30)
 
-# TASK 6.1: Write a function that safely gets a value from a dictionary
+# TASK 8.1: Write a function that safely gets a value from a dictionary
 # Function name: safe_get_value
 # Parameters: my_dict, key
 # Try: Access my_dict[key]
@@ -210,7 +315,7 @@ print("-" * 30)
 # Call with: safe_get_value({"name": "Alice"}, "name") and safe_get_value({"name": "Alice"}, "age")
 
 
-# TASK 6.2: Write a function that safely processes a list of strings as numbers
+# TASK 8.2: Write a function that safely processes a list of strings as numbers
 # Function name: safe_process_numbers
 # Parameter: number_strings (a list of strings like ["10", "20", "thirty", "40"])
 # Create an empty list called 'numbers'
