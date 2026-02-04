@@ -91,22 +91,18 @@
 - **AI**: No step-by-step code. Only the task. You can ask for hints or error help after you’ve tried.
 - **Goal**: Concrete learning — docs → code → errors → fix → working script. Covers different scenarios (different methods, auth, JSON shapes, errors).
 
-**Tasks 4–15 (unguided — task only; you read docs, write script, fix errors):**
+**Tasks 4–11 (unguided — task only; you read docs, write script, fix errors):**
 
 | # | Task | Practices |
 |---|------|-----------|
-| **4** | Write an API script to fetch a list of 5 random dog image URLs using the [Dog CEO API](https://dog.ceo/dog-api/). | No-auth GET, JSON with list/`message`, extract string values. |
-| **5** | Write an API script to fetch a random cat fact using the [Cat Facts API](https://catfact.ninja/) and save it to a text file. | No-auth GET, parse response, file I/O. |
-| **6** | Write an API script to fetch today’s weather (temperature + wind speed) for a given latitude/longitude using the [Open-Meteo API](https://open-meteo.com/en/docs). | No-auth GET, query params (`latitude`, `longitude`), nested JSON. |
-| **7** | Write an API script to fetch country details (capital, population, currencies) by country name or code using the [REST Countries API](https://restcountries.com/). | No-auth GET, path or query params, array response, nested fields. |
-| **8** | Write an API script to retrieve one random user profile (name, email, location) using the [Random User Generator API](https://randomuser.me/documentation). | No-auth GET, nested JSON (`results` array), extract specific fields. |
-| **9** | Write an API script to get the current exchange rate from USD to INR using a free currency API (e.g. [ExchangeRate-API](https://www.exchangerate-api.com/) free tier). | API key in header or query, `.env`, error handling (401/403). |
-| **10** | Write an API script to create a new post (`title`, `body`, `userId`) using the [JSONPlaceholder API](https://jsonplaceholder.typicode.com/) `/posts` endpoint. | POST with JSON body, `Content-Type: application/json`, handle response. |
-| **11** | Write an API script to update only the title of an existing post (e.g. post ID 1) using the [JSONPlaceholder API](https://jsonplaceholder.typicode.com/) `/posts/{id}` endpoint. | PATCH with partial JSON payload (vs full PUT). |
-| **12** | Write an API script to fully replace an existing post (e.g. post ID 1) with new `title`, `body`, and `userId` using the [JSONPlaceholder API](https://jsonplaceholder.typicode.com/) `/posts/{id}` endpoint. | PUT with full JSON body; contrast with PATCH. |
-| **13** | Write an API script to fetch the first 10–20 public repositories of a given GitHub username using the [GitHub REST API](https://docs.github.com/en/rest). | GET, path/query params, pagination (`per_page`), optional token (rate limits). |
-| **14** | Write an API script to fetch public holidays for a given country and year using the [Nager.Date API](https://date.nager.at/Api). | GET, path parameters (`/api/v2/publicholidays/{year}/{countryCode}`), array of objects. |
-| **15** | Write an API script using the **OpenAI Python SDK** to send a short prompt (e.g. “The weather today is”) and print the generated text completion. | SDK (not raw `requests`), API key from `.env`, nested response (`choices[0].message.content`). |
+| **4** | Write an API script to fetch a random cat fact using the [Cat Facts API](https://catfact.ninja/) and save it to a text file. | No-auth GET, parse response, file I/O. |
+| **5** | Write an API script to get the current exchange rate from USD to INR using a free currency API (e.g. [ExchangeRate-API](https://www.exchangerate-api.com/) free tier). | API key in header or query, `.env`, error handling (401/403). |
+| **6** | Write an API script to create a new post (`title`, `body`, `userId`) using the [JSONPlaceholder API](https://jsonplaceholder.typicode.com/) `/posts` endpoint. | POST with JSON body, `Content-Type: application/json`, handle response. |
+| **7** | Write an API script to update only the title of an existing post (e.g. post ID 1) using the [JSONPlaceholder API](https://jsonplaceholder.typicode.com/) `/posts/{id}` endpoint. | PATCH with partial JSON payload (vs full PUT). |
+| **8** | Write an API script to fully replace an existing post (e.g. post ID 1) with new `title`, `body`, and `userId` using the [JSONPlaceholder API](https://jsonplaceholder.typicode.com/) `/posts/{id}` endpoint. | PUT with full JSON body; contrast with PATCH. |
+| **9** | Write an API script to fetch the first 10–20 public repositories of a given GitHub username using the [GitHub REST API](https://docs.github.com/en/rest). | GET, path/query params, pagination (`per_page`), optional token (rate limits). |
+| **10** | Write an API script to fetch public holidays for a given country and year using the [Nager.Date API](https://date.nager.at/Api). | GET, path parameters (`/api/v2/publicholidays/{year}/{countryCode}`), array of objects. |
+| **11** | Write an API script using the **OpenAI Python SDK** to send a short prompt (e.g. “The weather today is”) and print the generated text completion. | SDK (not raw `requests`), API key from `.env`, nested response (`choices[0].message.content`). |
 
 **Why this sequence:** No-auth GET (4–8) → API key GET (9) → POST (10) → PATCH (11) → PUT (12) → pagination / path params (13–14) → SDK (15). Covers GET/POST/PUT/PATCH, no-auth vs key, query vs path params, arrays and nested JSON, file I/O, and SDK usage. All APIs are free and well-documented.
 
